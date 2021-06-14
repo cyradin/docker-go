@@ -1,6 +1,6 @@
 # Docker-golang
 
-Docker image for development with VS Code
+Docker image for development with VS Code using [Remote Containers extension](https://code.visualstudio.com/docs/remote/containers)
 
 ## Usage
 
@@ -13,6 +13,7 @@ services:
       volumes:
         - "./:/home/user/app"
 ```
+
 
 To specify UID and GID, according to [this instruction](https://dev.to/acro5piano/specifying-user-and-group-in-docker-i2e), add to docker-compose.yml:
 ```yaml
