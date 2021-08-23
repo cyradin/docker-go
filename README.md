@@ -19,11 +19,11 @@ To specify UID and GID, according to [this instruction](https://dev.to/acro5pian
 ```yaml
 services:
     go:
-      user: "${UID}:${GID}"
+      user: "${USER_ID}:${GROUP_ID}"
       // ...
 ```
 
 And run containers with:
 ```shell
-$ UID=${UID} GID=${GID} docker-compose up
+$ USER_ID=${UID} GROUP_ID=${GID} docker-compose up
 ```
