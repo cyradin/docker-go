@@ -35,8 +35,9 @@ RUN go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs && \
     go get -v golang.org/x/tools/gopls
 
 RUN addgroup user \
-    && adduser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password --shell=/bin/bash --ingroup=user user \
-    && chown -R user:user /opt \
+    && adduser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password --shell=/bin/bash --ingroup=users user \
+    && chown -R user:users /opt \
+    && chown -R user:users /go \
     && echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user \
     && chmod 0440 /etc/sudoers.d/user \
     && visudo --check
