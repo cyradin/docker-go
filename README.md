@@ -14,6 +14,7 @@ services:
         - "./:/home/user/app"
 ```
 
+### Run as non-privileged user
 
 To specify UID and GID, according to [this instruction](https://dev.to/acro5piano/specifying-user-and-group-in-docker-i2e), add to docker-compose.yml:
 ```yaml
@@ -26,4 +27,21 @@ services:
 And run containers with:
 ```shell
 $ USER_ID=${UID} GROUP_ID=${GID} docker-compose up
+```
+
+### Preserve go packages (i.e. VSCode Go extension's analysis tools)
+
+Add a volume to docker-compose.yml
+
+```yaml
+services:
+    go:
+      image: cyradin/go:latest
+      volumes:
+        - "./:/home/user/app"
+        - "go-pkg:/go/pkg"
+
+volumes:
+  go-pkg:
+    driver: local
 ```

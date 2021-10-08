@@ -21,21 +21,8 @@ RUN apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install packages needed for VS Code Golang extension
-RUN go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs && \
-    go get -v honnef.co/go/tools/cmd/staticcheck && \
-    go get -v github.com/ramya-rao-a/go-outline && \
-    go get -v github.com/cweill/gotests/gotests && \
-    go get -v github.com/fatih/gomodifytags && \
-    go get -v github.com/josharian/impl && \
-    go get -v github.com/haya14busa/goplay/cmd/goplay && \
-    go get -v github.com/go-delve/delve/cmd/dlv && \
-    go get -v github.com/go-delve/delve/cmd/dlv@master && \
-    go get -v honnef.co/go/tools/cmd/staticcheck && \
-    go get -v golang.org/x/tools/gopls
-
 RUN addgroup user \
-    && adduser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password --shell=/bin/bash --ingroup=users user \
+    && adduser --disabled-password --shell=/bin/bash --ingroup=users user \
     && chown -R user:users /opt \
     && chown -R user:users /go \
     && echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user \
