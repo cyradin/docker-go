@@ -31,7 +31,7 @@ $ USER_ID=${UID} GROUP_ID=${GID} docker-compose up
 
 ### Preserve go packages (i.e. VSCode Go extension's analysis tools)
 
-Add a volume to docker-compose.yml
+Add volumes to docker-compose.yml
 
 ```yaml
 services:
@@ -40,8 +40,11 @@ services:
       volumes:
         - "./:/home/user/app"
         - "go-pkg:/go/pkg"
+        - "go-bin:/go/bin"
 
 volumes:
   go-pkg:
+    driver: local
+  go-bin:
     driver: local
 ```
