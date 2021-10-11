@@ -24,6 +24,12 @@ RUN apt-get -y autoremove \
 RUN addgroup user \
     && adduser --disabled-password --shell=/bin/bash --ingroup=users user \
     && chown -R user:users /opt \
+    && mkdir -p /go/bin \
+    && touch /go/bin/.keep \
+    && mkdir -p /go/pkg \
+    && touch /go/pkg/.keep \
+    && mkdir -p /go/src \
+    && touch /go/src/.keep \
     && chown -R user:users /go \
     && echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user \
     && chmod 0440 /etc/sudoers.d/user \
