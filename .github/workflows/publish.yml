@@ -21,7 +21,6 @@ jobs:
           push: true
           tags: |
             cyradin/go:latest
-            cyradin/go:1.17
-            cyradin/go:1.17.2
+            cyradin/go:1.18
           build-args: |
-            GO_VERSION=1.17.2
+            GO_VERSION=1.18
