@@ -23,4 +23,4 @@ jobs:
             cyradin/go:latest
             cyradin/go:1.18
           build-args: |
-            GO_VERSION=1.18.1
+            GO_VERSION=1.18.5
