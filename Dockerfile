@@ -32,9 +32,10 @@ USER user
 # see https://github.com/microsoft/vscode-remote-release/issues/22
 ENV HOME /home/user
 
+RUN mkdir -p /home/user/go/bin && mkdir -p /home/user/go/pkg
+
 ENV GOPATH=/home/user/go
 ENV PATH $GOPATH/bin:$PATH
 WORKDIR /home/user/app
 
 ENTRYPOINT ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
-
