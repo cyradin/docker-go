@@ -42,4 +42,4 @@ ENV HOME /home/user
 
 WORKDIR /home/user/app
 
-ENTRYPOINT [ "sleep", "infinity" ]
+ENTRYPOINT ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
